@@ -28,4 +28,9 @@ jobs:
             --to python \
             --TemplateExporter.exclude_markdown=true {} \;
       - name: Run bandit
-        run: bandit --verbose -r ./src
+        run: |
+          bandit \
+            --verbose \
+            --exclude .svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.eggs,*.egg,.ipynb_checkpoints \
+            --recursive
+            ./src
